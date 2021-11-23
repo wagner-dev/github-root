@@ -20,6 +20,7 @@ const MenuComponent: FC = () => {
                             src={LogoIcon}
                             width={200}
                             height={61}
+                            alt="Logo icon"
                             placeholder="blur"
                             blurDataURL={LogoIcon.blurDataURL}  />
                     </a>

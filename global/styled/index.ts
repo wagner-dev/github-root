@@ -6,7 +6,7 @@ html,
 body {
     padding: 0;
     margin: 0;
-    font-family: Roboto, sans-serif;
+    font-family: Roboto, Lato, sans-serif;
     background: #f1f1f1;
 }
 
