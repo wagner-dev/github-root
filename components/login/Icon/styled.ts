@@ -12,4 +12,10 @@ export const Body = styled.article`
 `
 export const Icon = styled.div`
     width: 100%;
+
+    @media only screen and (max-width: 620px){
+        img{
+            width: 90% !important;
+        }
+    }
 `

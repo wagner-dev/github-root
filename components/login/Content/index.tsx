@@ -1,4 +1,4 @@
-import { FC } from 'react'
+import { FC, useState, ChangeEventHandler } from 'react'
 import {
     Body,
     Form,
@@ -6,8 +6,42 @@ import {
     InputText,
     SubmitButton
 } from './styled'
+import { persistCookie } from '../../../services/persist/index'
+import { useRouter } from 'next/router'
 
 const ContentComponent: FC = () => {
+
+    const { query: { back: backLinkParams }, push } = useRouter()
+
+    const [name, setName] = useState('')
+
+    const ChangeName: ChangeEventHandler<HTMLInputElement> = 
+    ({ target: { value } }) => {
+        const nameValid = value.replace(/[^A-Z0-9-._]/img, '')
+        
+        setName( nameValid )
+    }
+
+    const SignIn = () => {
+
+        if(name) {
+
+            const data = {
+                ctx: null,
+                name: "username_github_root",
+                data: name
+            }
+
+            const persistentResult = persistCookie(data)
+            
+            const backLink = backLinkParams
+            ? `/${backLinkParams}`
+            : '/'
+
+            if(persistentResult) push( backLink ) 
+        }
+    }
+
     return (
         <Body>
             <Form>
@@ -17,12 +51,15 @@ const ContentComponent: FC = () => {
                 <InputText>
                     <input
                         placeholder="Seu nome de login no github" 
+                        value={name}
+                        onChange={ChangeName}
                     />
                 </InputText>
                 <SubmitButton>
                     <input 
                         type="submit"
                         value="Entrar"
+                        onClick={SignIn}
                     />
                 </SubmitButton>
             </Form>
