@@ -1,8 +1,8 @@
-import { GetServerSidePropsContext } from 'next'
+import { NextPageContext } from 'next'
 import { getCookie } from '../persist/index'
 
 interface VerifyAuthProps {
-    ctx?: GetServerSidePropsContext | null,
+    ctx?: Pick<NextPageContext, 'req'> | null,
 }
 
 const VerifyAuth = ({ ctx }: VerifyAuthProps) => {

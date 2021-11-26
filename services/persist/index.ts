@@ -1,9 +1,9 @@
-import { GetServerSidePropsContext } from 'next'
+import { NextPageContext } from 'next'
 import { CookieSerializeOptions } from 'cookie'
-import { parseCookies, setCookie } from 'nookies'
+import { parseCookies, setCookie, destroyCookie } from 'nookies'
 
 interface PersistCookie {
-    ctx?: GetServerSidePropsContext | null
+    ctx?: Pick<NextPageContext, 'res'> | null
     name: string,
     data: any,
     optionsForm?: CookieSerializeOptions
@@ -33,7 +33,7 @@ export const persistCookie =
 }
 
 interface GetCookie {
-    ctx?: GetServerSidePropsContext | null,
+    ctx?: Pick<NextPageContext, 'req'> | null,
     name: string
 }
 
@@ -46,3 +46,16 @@ export const getCookie = ({ ctx, name }: GetCookie) => {
 
     return cookieResult
 }
+
+interface DeleteCookie {
+    ctx?: Pick<NextPageContext, 'res'> | null,
+    nameForm?: string,
+}
+
+export const deleteCookie = ({ ctx, nameForm }: DeleteCookie) => {
+    const  name = nameForm 
+    ? nameForm
+    : "username_github_root"
+
+    destroyCookie(ctx, name)
+} 

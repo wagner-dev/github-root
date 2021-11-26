@@ -1,4 +1,4 @@
-import { NextPage, GetServerSideProps } from 'next'
+import { NextPage, GetServerSideProps, NextPageContext } from 'next'
 import LoginComponent from '../components/login/index'
 import VerifyAuth from '../services/auth/index'
 

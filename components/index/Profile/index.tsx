@@ -13,34 +13,62 @@ import {
     ValueCard
 } from './styled'
 import Image from 'next/image'
+import { deleteCookie } from '../../../services/persist/index'
+import { useRouter } from 'next/router'
+import { ProfileI } from '../index'
 
-const ProfileComponent: FC = () => {
+interface PropsI {
+    profile: ProfileI
+}
+
+const ProfileComponent: FC<PropsI> = ({ profile }) => {
+    const {  
+            avatar_url,
+            name,
+            bio,
+            followers,
+            following,
+            public_repos } = profile
+
+    const { push } = useRouter()
+
+    const LogOut = () => {
+        const options = {
+            ctx: null,
+            nameForm: "username_github_root"
+        }
+        deleteCookie(options)
+
+        push('/login')
+    }
+
     return(
         <Body>
             <ImageProfile>
                 <Image
                     width={175}
                     height={175} 
-                    src="https://avatars.githubusercontent.com/u/63814295?v=4" />
+                    src={avatar_url} />
             </ImageProfile>
             <Data>
                 <NameBody>
                     <Name>
-                        <span>wagner-dev</span>
+                        <span>{name}</span>
                     </Name>
                     <LogOutButton>
                         <input
+                            onClick={LogOut}
                             type="submit" 
                             value="Sair" />
                     </LogOutButton>
                 </NameBody>
                 <Bio>
-                    <span>{"16 years. Developer fullstack. JavaScript, Typescript, React, Next, Node <3"}</span>
+                    <span>{bio}</span>
                 </Bio>
                 <Cards>
                     <Card>
                         <ValueCard>
-                            <span>58</span>
+                            <span>{following}</span>
                         </ValueCard>
                         <TitleCard>
                             <span>seguindo</span>
@@ -48,7 +76,7 @@ const ProfileComponent: FC = () => {
                     </Card>
                     <Card>
                         <ValueCard>
-                            <span>45</span>
+                            <span>{followers}</span>
                         </ValueCard>
                         <TitleCard>
                             <span>seguidores</span>
@@ -56,7 +84,7 @@ const ProfileComponent: FC = () => {
                     </Card>
                     <Card>
                         <ValueCard>
-                            <span>9</span>
+                            <span>{public_repos}</span>
                         </ValueCard>
                         <TitleCard>
                             <span>repositórios</span>
