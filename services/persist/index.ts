@@ -1,9 +1,9 @@
-import { NextPageContext } from 'next'
+import { GetServerSidePropsContext } from 'next'
 import { CookieSerializeOptions } from 'cookie'
 import { parseCookies, setCookie } from 'nookies'
 
 interface PersistCookie {
-    ctx?: NextPageContext | null
+    ctx?: GetServerSidePropsContext | null
     name: string,
     data: any,
     optionsForm?: CookieSerializeOptions
@@ -33,7 +33,7 @@ export const persistCookie =
 }
 
 interface GetCookie {
-    ctx?: NextPageContext | null,
+    ctx?: GetServerSidePropsContext | null,
     name: string
 }
 

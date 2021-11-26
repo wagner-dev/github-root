@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEventHandler } from 'react'
+import { FC, useState, ChangeEventHandler, KeyboardEventHandler } from 'react'
 import {
     Body,
     Form,
@@ -42,6 +42,10 @@ const ContentComponent: FC = () => {
         }
     }
 
+    const SignInWithEnter: KeyboardEventHandler<HTMLInputElement> = ({ keyCode }) => {
+        if(keyCode === 13) SignIn()
+    }
+
     return (
         <Body>
             <Form>
@@ -53,6 +57,7 @@ const ContentComponent: FC = () => {
                         placeholder="Seu nome de login no github" 
                         value={name}
                         onChange={ChangeName}
+                        onKeyDown={SignInWithEnter}
                     />
                 </InputText>
                 <SubmitButton>
