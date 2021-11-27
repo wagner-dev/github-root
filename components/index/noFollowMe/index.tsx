@@ -10,8 +10,15 @@ import {
     PeopleText
 } from './styled'
 import NoFollowMeIcon from '../../../assets/index/noFollowMe/index.svg'
+import { MetaI } from '../index'
 
-const NoFollowMeComponent: FC = () => {
+interface PropsI {
+    unfollowers: MetaI
+}
+
+const NoFollowMeComponent: FC<PropsI> = ({ unfollowers }) => {
+
+
     return (
         <Link href='/no-follow-me' passHref>
             <a>
@@ -26,7 +33,7 @@ const NoFollowMeComponent: FC = () => {
                                 <span>Pessoas que não me seguem de volta.</span>
                             </Text>
                             <PeopleText>
-                                <span>33 </span>
+                                <span>{unfollowers.length} </span>
                                 <span>pessoas</span>
                             </PeopleText>
                         </TextBody>

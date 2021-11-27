@@ -1,4 +1,4 @@
-import { FC, useState } from 'react'
+import { FC } from 'react'
 import {
     Body 
 } from './styled'
@@ -16,17 +16,20 @@ export interface ProfileI {
     public_repos: number
 }
 
+export interface MetaI {
+    length: number
+}
+
+
 import { PropsI } from '../../pages/index'
 
-const IndexPage: FC<PropsI> = ({ profile: profileData }) => {
-    
-    const profile: ProfileI | undefined = profileData
+const IndexPage: FC<PropsI> = ({ profile, unfollowers, no_follow }) => {
     
     return (
         <Body>
             <Profile profile={profile} />
-            <DontFollow />
-            <DontFollowMe />
+            <DontFollow noFollow={no_follow} />
+            <DontFollowMe unfollowers={unfollowers} />
         </Body>
     )
 }
