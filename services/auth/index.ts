@@ -10,14 +10,14 @@ const VerifyAuth = ({ ctx }: VerifyAuthProps) => {
         ctx,
         name: "username_github_root",
     }
-    const name = getCookie(options)
-    const auth = name 
+    const username = getCookie(options)
+    const auth = username 
     ? true
     : false
 
     const data = {
         auth,
-        name
+        username
     }
 
     return data

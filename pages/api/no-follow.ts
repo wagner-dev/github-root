@@ -6,7 +6,7 @@ interface DataRequestI {
 }
 
 const NoFollow = async (request: NextApiRequest, response: NextApiResponse) => {
-    const name = "wagner-dev" //request.headers.authorization
+    const name = request.headers.authorization
 
     try{
         const { data: dataFollowing }: AxiosResponse<DataRequestI[], any>= await api.get(`https://api.github.com/users/${name}/following`)
@@ -15,12 +15,7 @@ const NoFollow = async (request: NextApiRequest, response: NextApiResponse) => {
         const Find = (follow: DataRequestI, follower: DataRequestI) => follow.id === follower.id
         const NoFollowData = dataFollowers.filter(follower => dataFollowing.some(follow => !Find(follow, follower)))
 
-        const data = {
-            data: NoFollowData,
-            length: NoFollowData.length
-        }
-
-        response.json({ message: 'ok', data })
+        response.json({ message: 'ok', data: NoFollowData })
     }
     catch{
         response.status(500)

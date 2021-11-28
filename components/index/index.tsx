@@ -16,20 +16,15 @@ export interface ProfileI {
     public_repos: number
 }
 
-export interface MetaI {
-    length: number
-}
-
-
 import { PropsI } from '../../pages/index'
 
-const IndexPage: FC<PropsI> = ({ profile, unfollowers, no_follow }) => {
+const IndexPage: FC<PropsI> = ({ profile }) => {
     
     return (
         <Body>
             <Profile profile={profile} />
-            <DontFollow noFollow={no_follow} />
-            <DontFollowMe unfollowers={unfollowers} />
+            <DontFollow />
+            <DontFollowMe />
         </Body>
     )
 }

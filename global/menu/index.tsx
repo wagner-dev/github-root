@@ -21,7 +21,7 @@ const MenuComponent: FC = () => {
                             width={200}
                             height={61}
                             alt="Logo icon"
-                            placeholder="blur"
+                            priority={true}
                             blurDataURL={LogoIcon.blurDataURL}  />
                     </a>
                 </Link>

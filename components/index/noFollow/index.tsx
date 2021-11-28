@@ -7,33 +7,35 @@ import {
     Data,
     TextBody,
     Text,
-    PeopleText
+    // PeopleText
 } from './styled'
 import NoFollowIcon from '../../../assets/index/NoFollow/index.svg'
-import { MetaI } from '../index'
+// import { MetaI } from '../index'
 
-interface PropsI {
-    noFollow: MetaI 
-}
+// interface PropsI {
+//     noFollow: MetaI 
+// }
 
-const NoFollowComponent: FC<PropsI> = ({ noFollow }) => {
+const NoFollowComponent: FC = () => {
     return (
 
-        <Link href="/no-follow" passHref>
+        <Link href="/no-follow-back" passHref>
             <a>
                 <Body>
                     <Icon>
-                        <Image src={NoFollowIcon} />     
+                        <Image
+                            alt="Usuarios que não sigo de volta." 
+                            src={NoFollowIcon} />     
                     </Icon>
                     <Data>
                         <TextBody>
                             <Text>
-                                <span>Pessoas que não sigo de volta.</span>
+                                <span>Usuarios que não sigo de volta.</span>
                             </Text>
-                            <PeopleText>
+                            {/* <PeopleText>
                                 <span>{noFollow.length} </span>
                                 <span>pessoas</span>
-                            </PeopleText>
+                            </PeopleText> */}
                         </TextBody>
                     </Data>
                 </Body>
