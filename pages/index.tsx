@@ -4,16 +4,19 @@ import IndexComponent from '../components/index/index'
 import Menu from '../global/menu/index'
 import api, { AxiosResponse } from 'axios'
 import { ProfileI } from '../components/index/index'
+import { AuthI } from '../pages/login'
 
 export interface PropsI {
     profile: ProfileI,
+    auth?: AuthI
 }
 
-const IndexPage: NextPage<PropsI> = ({ profile }) => {
+const IndexPage: NextPage<PropsI> = ({ profile, auth }) => {
 
   return (
       <>    
-        <Menu />
+        <Menu auth={auth} />
+        
         <IndexComponent 
             profile={profile}
         />
@@ -61,7 +64,8 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
 
           return {
               props: {
-                  profile
+                  profile,
+                  auth: authResult
               }
           }
       }

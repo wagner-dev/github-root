@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 export const Body = styled.header`
     width: 100%;
-    padding: .5rem 0rem;
+    padding: .5rem 1rem;
     background: #fff;
     display: flex;
     justify-content: space-around;
@@ -15,7 +15,8 @@ export const Logo = styled.div`
 `
 
 export const Options = styled.div`
-
+    display: flex;
+    margin: 0rem 1rem;
 `
 export const SignInButton = styled.div`
     
@@ -26,5 +27,16 @@ export const SignInButton = styled.div`
         color: #fff;
         border-radius: 8px;
         border: none;
+        margin: 0rem .5rem;
+
+        @media only screen and (max-width: 620px){ padding: .8rem 1rem; }
+    }
+`
+
+export const OptionIcon = styled.div`
+    margin: 0rem 1rem;
+
+    @media only screen and (max-width: 620px){
+        margin: 0rem .4rem;
     }
 `

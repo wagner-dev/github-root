@@ -6,7 +6,6 @@ import {
 } from './styled'
 import { PropsI } from '../../pages/unfollowers'
 
-import Menu from '../../global/menu/index'
 import FlatList from './FlatList/index'
 import Empty from './Empty/index'
 
@@ -14,7 +13,6 @@ const NoFollowComponent: FC<PropsI> = ({ data }) => {
 
     return (
         <>  
-            <Menu />
 
             <Body>
                 <Title>

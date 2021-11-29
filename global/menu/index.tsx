@@ -1,15 +1,69 @@
+import { FC } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import { FC } from 'react'
 import LogoIcon from '../../assets/logo/index.light.png'
 import {
     Body,
     Logo,
     Options,
-    SignInButton
+    SignInButton,
+    OptionIcon
 } from './styled'
+import NoFollowBackIcon from '../../assets/index/noFollow/index.svg'
+import UnFollowersIcon from '../../assets/index/noFollowMe/index.svg'
+import { AuthI } from '../../pages/login'
 
-const MenuComponent: FC = () => {
+interface PropsI {
+    auth?: AuthI
+}
+
+const MenuComponent: FC<PropsI> = ({ auth }) => {
+
+
+    const UnAuth = () => {
+        return (
+            <SignInButton>
+                    <Link href="/login">
+                        <a>
+                            <input
+                                type="submit"
+                                value="Entrar" />
+                        </a>
+                    </Link>
+            </SignInButton>
+        )
+    }
+
+    const Auth = () => {
+        return (
+            <>
+                <Link href="/no-follow-back" >
+                    <a>
+                        <OptionIcon>
+                            
+                            <Image
+                                width={30}
+                                height={30} 
+                                src={NoFollowBackIcon} />
+
+                        </OptionIcon>
+                    </a>
+                </Link>
+                <Link href="/unfollowers" >
+                    <a>
+                        <OptionIcon>
+
+                            <Image
+                                width={30}
+                                height={30} 
+                                src={UnFollowersIcon} />
+
+                        </OptionIcon>
+                    </a>
+                </Link>
+            </>
+        )
+    }
 
     return (
         <Body>
@@ -28,15 +82,10 @@ const MenuComponent: FC = () => {
             </Logo>
 
             <Options>
-                <SignInButton>
-                    <Link href="/login">
-                        <a>
-                            <input
-                                type="submit"
-                                value="Entrar" />
-                        </a>
-                    </Link>
-                </SignInButton>
+                { auth?.auth 
+                    ? <Auth />
+                    : <UnAuth />
+                }
             </Options>
 
         </Body>

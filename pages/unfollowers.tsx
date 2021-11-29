@@ -1,7 +1,9 @@
 import { GetServerSideProps, NextPage } from 'next'
 import api from 'axios'
 import UnFollowersComponent from '../components/unfollowers/index'
-import { getCookie } from '../services/persist'
+import Menu from '../global/menu/index'
+import VerifyAuth from '../services/auth'
+import { AuthI } from '../pages/login'
 
 export interface DataI {
     avatar_url: string,
@@ -9,12 +11,18 @@ export interface DataI {
 }
 
 export interface PropsI {
-    data: DataI[]
+    data: DataI[],
+    auth?: AuthI
 }
 
-const UnFollowersPage: NextPage<PropsI> = ({ data }) => {
+const UnFollowersPage: NextPage<PropsI> = ({ data, auth }) => {
     
-    return <UnFollowersComponent data={data} />
+    return (
+        <>
+            <Menu auth={auth} />
+            <UnFollowersComponent data={data} />
+        </>
+    ) 
 
 }
 
@@ -28,13 +36,15 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }
     
     try{
-        const username = getCookie({ ctx, name: "username_github_root" })
-        if(username){
-            const { data: { data } } = await api.get(`${ process.env.HOST || "http://localhost:3000" }/api/unfollowers`, { headers: { Authorization: username } })
+        const authResult = VerifyAuth({ ctx })
+        if(authResult.auth){
+            const { username } = authResult
+            const { data: { data } } = await api.get(`${ process.env.HOST || "http://localhost:3000" }/api/unfollowers`, { headers: { Authorization: `${username}` } })
     
             return {
                 props: {
-                    data
+                    data,
+                    auth: authResult
                 }
             }
         }

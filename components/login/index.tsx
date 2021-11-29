@@ -1,5 +1,4 @@
 import { FC } from 'react'
-import Menu from '../../global/menu/index'
 import {
     Body
 } from './styled'
@@ -9,7 +8,6 @@ import Content from './Content/index'
 const LoginComponent: FC = () => {
     return (
         <>
-            <Menu />
             <Body>
                 <Icon />
                 <Content />
