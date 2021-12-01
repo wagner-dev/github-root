@@ -9,7 +9,7 @@ import {
     Text,
     // PeopleText
 } from './styled'
-import NoFollowMeIcon from '../../../assets/index/noFollowMe/index.svg'
+import NoFollowMeIcon from '../../../assets/index/UnFollowers/index.svg'
 // import { MetaI } from '../index'
 
 // interface PropsI {

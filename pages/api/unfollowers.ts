@@ -11,9 +11,8 @@ const UnFollowers = async (request: NextApiRequest, response: NextApiResponse) =
     try{
         const { data: dataFollowing }: AxiosResponse<DataRequestI[], any>= await api.get(`https://api.github.com/users/${name}/following`)
         const { data: dataFollowers }: AxiosResponse<DataRequestI[], any>= await api.get(`https://api.github.com/users/${name}/followers`)
-        
-        const Find = (follow: DataRequestI, follower: DataRequestI) => follow.id === follower.id
-        const UnFollowersData = dataFollowing.filter(follow => dataFollowers.some(follower => !Find(follow, follower)))
+
+        const UnFollowersData = dataFollowing.filter(follow => !dataFollowers.some(follower => follower.id === follow.id))
 
         response.json({ message: 'ok', data: UnFollowersData })
     }

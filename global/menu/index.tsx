@@ -9,8 +9,8 @@ import {
     SignInButton,
     OptionIcon
 } from './styled'
-import NoFollowBackIcon from '../../assets/index/noFollow/index.svg'
-import UnFollowersIcon from '../../assets/index/noFollowMe/index.svg'
+import NoFollowBackIcon from '../../assets/index/NoFollow/index.svg'
+import UnFollowersIcon from '../../assets/index/UnFollowers/index.svg'
 import { AuthI } from '../../pages/login'
 
 interface PropsI {

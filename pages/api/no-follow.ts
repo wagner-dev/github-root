@@ -12,8 +12,7 @@ const NoFollow = async (request: NextApiRequest, response: NextApiResponse) => {
         const { data: dataFollowing }: AxiosResponse<DataRequestI[], any>= await api.get(`https://api.github.com/users/${name}/following`)
         const { data: dataFollowers }: AxiosResponse<DataRequestI[], any>= await api.get(`https://api.github.com/users/${name}/followers`)
         
-        const Find = (follow: DataRequestI, follower: DataRequestI) => follow.id === follower.id
-        const NoFollowData = dataFollowers.filter(follower => dataFollowing.some(follow => !Find(follow, follower)))
+        const NoFollowData = dataFollowers.filter(follower => !dataFollowing.some(follow => follow.id === follower.id))
 
         response.json({ message: 'ok', data: NoFollowData })
     }

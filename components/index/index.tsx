@@ -5,7 +5,7 @@ import {
 
 import Profile from './Profile/index'
 import DontFollow from './noFollow/index'
-import DontFollowMe from './noFollowMe/index'
+import UnFollowers from './UnFollowers/index'
 
 export interface ProfileI {
     name: string,
@@ -24,7 +24,7 @@ const IndexPage: FC<PropsI> = ({ profile }) => {
         <Body>
             <Profile profile={profile} />
             <DontFollow />
-            <DontFollowMe />
+            <UnFollowers />
         </Body>
     )
 }
