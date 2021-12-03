@@ -9,7 +9,7 @@ import {
     SignInButton,
     OptionIcon
 } from './styled'
-import NoFollowBackIcon from '../../assets/index/NoFollow/index.svg'
+import NoFollowBackIcon from '../../assets/index/noFollow/index.svg'
 import UnFollowersIcon from '../../assets/index/UnFollowers/index.svg'
 import { AuthI } from '../../pages/login'
 
@@ -44,6 +44,7 @@ const MenuComponent: FC<PropsI> = ({ auth }) => {
                             <Image
                                 width={30}
                                 height={30} 
+                                alt="Usuarios que não sigo de volta." 
                                 src={NoFollowBackIcon} />
 
                         </OptionIcon>
@@ -56,6 +57,7 @@ const MenuComponent: FC<PropsI> = ({ auth }) => {
                             <Image
                                 width={30}
                                 height={30} 
+                                alt="Usuários que não te seguem de volta." 
                                 src={UnFollowersIcon} />
 
                         </OptionIcon>

@@ -12,10 +12,11 @@ const IconComponent: FC = () => {
         <Body>
             <Icon>
                 <Image 
+                    alt="Icon"
                     src={ImageIcon}
-                    placeholder="blur"
                     width={718}
                     height={541}
+                    placeholder="blur"
                     blurDataURL={ImageIcon}
                 />
             </Icon>

@@ -3,6 +3,7 @@ import api from 'axios'
 import UnFollowersComponent from '../components/unfollowers/index'
 import Menu from '../global/menu/index'
 import VerifyAuth from '../services/auth'
+import Head from '../services/Head/index'
 import { AuthI } from '../pages/login'
 
 export interface DataI {
@@ -19,6 +20,11 @@ const UnFollowersPage: NextPage<PropsI> = ({ data, auth }) => {
     
     return (
         <>
+            <Head 
+                description="O github root obtêm informações privilegiadas da aplicação do github para melhor gerenciamento de sua conta. Com o github root, você terá acesso às pessoas que não te seguem de volta e pessoas que você não segue de volta de uma maneira muito simples."
+                title="Github root - Usuários que não te seguem de volta"
+            />
+
             <Menu auth={auth} />
             <UnFollowersComponent data={data} />
         </>

@@ -16,9 +16,9 @@ import { PropsI } from '../../../pages/unfollowers'
 
 const FlatListComponent: FC<PropsI> = ({ data }) => {
 
-    const RenderItem = ({ avatar_url, login }: DataI) => {
+    const RenderItem = ({ avatar_url, login }: DataI, key: number) => {
         return (
-            <ProfileItem>
+            <ProfileItem key={key}>
                 <ProfileImage>
                     <Image
                         width={70} 
@@ -50,7 +50,7 @@ const FlatListComponent: FC<PropsI> = ({ data }) => {
 
     return (
         <>
-            { data.map(item => RenderItem(item)) } 
+            { data.map((item, key) => RenderItem(item, key)) } 
         </>
     )
 }

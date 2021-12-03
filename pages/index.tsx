@@ -1,5 +1,6 @@
 import type { NextPage, GetServerSideProps } from 'next'
 import VerifyAuth from '../services/auth/index'
+import Head from '../services/Head/index'
 import IndexComponent from '../components/index/index'
 import Menu from '../global/menu/index'
 import api, { AxiosResponse } from 'axios'
@@ -15,6 +16,11 @@ const IndexPage: NextPage<PropsI> = ({ profile, auth }) => {
 
   return (
       <>    
+        <Head 
+            title='Github root - home'
+            description="O github root obtêm informações privilegiadas da aplicação do github para melhor gerenciamento de sua conta. Com o github root, você terá acesso às pessoas que não te seguem de volta e pessoas que você não segue de volta de uma maneira muito simples."
+        />
+
         <Menu auth={auth} />
         
         <IndexComponent 

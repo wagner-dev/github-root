@@ -48,6 +48,7 @@ const ProfileComponent: FC<PropsI> = ({ profile }) => {
                 <Image
                     width={175}
                     height={175} 
+                    alt="Profile image"
                     src={avatar_url} />
             </ImageProfile>
             <Data>
