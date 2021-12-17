@@ -1,0 +1,7 @@
+User-agent: *
+
+Allow: /
+
+Host: http://github-root.vercel.app
+
+Sitemap: http://github-root.vercel.app/api/sitemap.xml
