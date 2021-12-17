@@ -37,7 +37,7 @@ const MenuComponent: FC<PropsI> = ({ auth }) => {
     const Auth = () => {
         return (
             <>
-                <Link href="/no-follow-back" >
+                <Link href="/i-dont-follow-back" >
                     <a>
                         <OptionIcon>
                             

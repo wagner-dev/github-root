@@ -4,7 +4,8 @@ import {
     Form,
     Title,
     InputText,
-    SubmitButton
+    SubmitButton,
+    Description
 } from './styled'
 import { persistCookie } from '../../../services/persist/index'
 import { useRouter } from 'next/router'
@@ -48,6 +49,11 @@ const ContentComponent: FC = () => {
 
     return (
         <Body>
+            <Description>
+                <span>
+                    Tenha acesso às pessoas que não te seguem de volta e pessoas que você não segue de volta no github.
+                </span>
+            </Description>
             <Form>
                 <Title>
                     <h2>Entrar</h2>

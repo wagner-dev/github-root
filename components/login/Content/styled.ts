@@ -5,6 +5,7 @@ export const Body = styled.article`
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 
     @media only screen and (max-width: 620px){
         width: 100%;
@@ -59,4 +60,12 @@ export const SubmitButton = styled.div`
         color: #fff;
         cursor: pointer;
     }
+`
+
+export const Description = styled.div`
+    width: 60%;
+    padding: 1rem 0rem;
+    
+    @media only screen and (max-width: 820px){ width: 70%; }
+    @media only screen and (max-width: 620px){ width: 95%; }
 `

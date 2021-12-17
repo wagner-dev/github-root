@@ -5,7 +5,7 @@ interface DataRequestI {
     id: number
 }
 
-const NoFollow = async (request: NextApiRequest, response: NextApiResponse) => {
+const IDontFollowBackApi = async (request: NextApiRequest, response: NextApiResponse) => {
     const name = request.headers.authorization
 
     try{
@@ -22,4 +22,4 @@ const NoFollow = async (request: NextApiRequest, response: NextApiResponse) => {
     }
 }
 
-export default NoFollow
+export default IDontFollowBackApi

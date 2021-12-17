@@ -4,7 +4,7 @@ import {
 } from './styled'
 
 import Profile from './Profile/index'
-import DontFollow from './noFollow/index'
+import IDontFollowBack from './IDontFollowBack/index'
 import UnFollowers from './UnFollowers/index'
 
 export interface ProfileI {
@@ -23,7 +23,7 @@ const IndexPage: FC<PropsI> = ({ profile }) => {
     return (
         <Body>
             <Profile profile={profile} />
-            <DontFollow />
+            <IDontFollowBack />
             <UnFollowers />
         </Body>
     )

@@ -1,10 +1,10 @@
 import { GetServerSideProps, NextPage } from 'next'
 import api from 'axios'
-import NoFollowComponent from '../components/noFollow/index'
+import IDontFollowBackComponent from '../components/IDontFollowBack/index'
 import Menu from '../global/menu/index'
 import VerifyAuth from '../services/auth'
 import Head from '../services/Head/index'
-import { AuthI } from '../pages/login'
+import { AuthI } from './login'
 
 export interface DataI {
     avatar_url: string,
@@ -16,7 +16,7 @@ export interface PropsI {
     auth?: AuthI
 }
 
-const NoFollowPage: NextPage<PropsI> = ({ data, auth }) => {
+const IDontFollowBackPage: NextPage<PropsI> = ({ data, auth }) => {
     
     return (
         <>  
@@ -26,7 +26,7 @@ const NoFollowPage: NextPage<PropsI> = ({ data, auth }) => {
             />
 
             <Menu auth={auth} />
-            <NoFollowComponent data={data} />
+            <IDontFollowBackComponent data={data} />
         </>
     )
 
@@ -45,7 +45,7 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
         const authResult = VerifyAuth({ ctx })
         if(authResult.auth){
             const { username } = authResult
-            const { data: { data } } = await api.get(`${ process.env.HOST || "http://localhost:3000" }/api/no-follow`, { headers: { Authorization: `${username}` } })
+            const { data: { data } } = await api.get(`${ process.env.HOST || "http://localhost:3000" }/api/i-dont-follow-back`, { headers: { Authorization: `${username}` } })
     
             return {
                 props: {
@@ -65,6 +65,6 @@ export const getServerSideProps: GetServerSideProps = async (ctx) => {
     }
 }
 
-export default NoFollowPage
+export default IDontFollowBackPage
 
 

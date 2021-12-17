@@ -13,7 +13,7 @@ export interface DataI {
 
 export interface PropsI {
     data: DataI[],
-    auth?: AuthI
+    auth?: AuthI,
 }
 
 const UnFollowersPage: NextPage<PropsI> = ({ data, auth }) => {

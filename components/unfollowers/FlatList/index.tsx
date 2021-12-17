@@ -43,7 +43,7 @@ const FlatListComponent: FC<PropsI> = ({ data }) => {
                         </Link>
                     </ProfileButton>
                 </ProfileNameBody>
-            </ProfileItem>
+            </ProfileItem >
         )
     }
 
@@ -54,6 +54,5 @@ const FlatListComponent: FC<PropsI> = ({ data }) => {
         </>
     )
 }
-
 
 export default memo( FlatListComponent )

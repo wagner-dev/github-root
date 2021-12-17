@@ -19,7 +19,7 @@ import NoFollowIcon from '../../../assets/index/noFollow/index.svg'
 const NoFollowComponent: FC = () => {
     return (
 
-        <Link href="/no-follow-back" passHref>
+        <Link href="/i-dont-follow-back" passHref>
             <a>
                 <Body>
                     <Icon>

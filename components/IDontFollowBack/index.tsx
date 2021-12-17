@@ -9,7 +9,7 @@ import { PropsI } from '../../pages/unfollowers'
 import FlatList from './FlatList/index'
 import Empty from './Empty/index'
 
-const NoFollowComponent: FC<PropsI> = ({ data }) => {
+const IDontFollowBackComponent: FC<PropsI> = ({ data }) => {
 
     return (
         <>  
@@ -32,4 +32,4 @@ const NoFollowComponent: FC<PropsI> = ({ data }) => {
 }
 
 
-export default NoFollowComponent
+export default IDontFollowBackComponent

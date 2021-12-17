@@ -5,6 +5,8 @@ export const Body = styled.article`
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
+    text-align: center;
 
     @media only screen and (max-width: 620px){
         width: 100%;
