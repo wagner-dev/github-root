@@ -7,7 +7,7 @@ export default async function SiteMap(request: NextApiRequest, response: NextApi
     const pages = [
         { url: '/', changefreq: 'daily', priority: 1 },
         { url: '/login', changefreq: 'daily', priority: 1 },
-        { url: '/no-follow-back', changefreq: 'daily', priority: 1 },
+        { url: '/i-dont-follow-back', changefreq: 'daily', priority: 1 },
         { url: '/unfollowers', changefreq: 'daily', priority: 1 },
     ]
     // set head

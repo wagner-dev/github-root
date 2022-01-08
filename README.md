@@ -23,5 +23,5 @@ Primeiro, execute o servidor de desenvolvimento:
 ```
 Em seguida, abra http://localhost:3000 com seu navegador para ver o resultado.
 
-# UX Design
+# UI Design
 ### figma: https://www.figma.com/file/CGYbPhPJaDZ6NMOBCdBuah/github-root
